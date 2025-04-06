@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">Bee Hive</Link>
       </div>
-      <ul className="navbar-menu">
+      <div className="navbar-hamburger" onClick={toggleMenu}>
+        <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+        <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+        <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+      </div>
+      <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
         </li>
         <li>
-          <Link to="/hive-management">Manage Hives</Link>
+          <Link to="/hive-management" onClick={() => setIsOpen(false)}>Manage Hives</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
         </li>
       </ul>
     </nav>
