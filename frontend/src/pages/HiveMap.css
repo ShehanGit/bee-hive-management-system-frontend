@@ -1,0 +1,122 @@
+/* Custom CSS variables for a bee-themed palette */
+:root {
+    --primary-color: #f9a602; /* Honey-like yellow */
+    --secondary-color: #ffd600;
+    --background-color: #fdfaf3; /* Warm, light background */
+    --sidebar-bg: #ffffff;
+    --text-color: #333;
+    --accent-color: #ffa000;
+  }
+  
+  /* Global reset and font styling */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Adjust page content below a fixed Navbar (assumes 60px height) */
+  .hivemap-page {
+    margin-top: 60px;
+  }
+  
+  /* Container for the sidebar and the map image */
+  .hive-map-container {
+    display: flex;
+    height: calc(100vh - 60px);
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 320px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid #eee;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sidebar-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Search bar styling */
+  .search-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+  
+  /* Hive list styling */
+  .hive-list {
+    list-style: none;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .hive-list-item {
+    background: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  
+  .hive-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    background-color: #fff8e1;
+  }
+  
+  .hive-list-item h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+  }
+  
+  .hive-list-item p {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Main map area styling */
+  .map {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-color);
+    padding: 1rem;
+  }
+  
+  .map-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  

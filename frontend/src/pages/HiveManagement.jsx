@@ -12,16 +12,16 @@ function HiveManagement() {
     fetchHives();
   }, []);
 
-  // Fetch all hives from the backend using the correct endpoint.
-  const fetchHives = async () => {
-    try {
-      const res = await axios.get('http://127.0.0.1:5000/api/hives');
-      // Ensure we set an array, or default to an empty array.
-      setHives(Array.isArray(res.data) ? res.data : []);
-    } catch (error) {
-      console.error('Error fetching hives:', error);
-    }
-  };
+    // Fetch all hives from the backend using the correct endpoint.
+    const fetchHives = async () => {
+      try {
+        const res = await axios.get('http://127.0.0.1:5000/api/hives');
+        // Ensure we set an array, or default to an empty array.
+        setHives(Array.isArray(res.data) ? res.data : []);
+      } catch (error) {
+        console.error('Error fetching hives:', error);
+      }
+    };
 
   // Handle form input changes
   const handleInputChange = (e) => {

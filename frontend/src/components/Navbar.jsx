@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">Bee Hive</Link>
+        <Link to="/">BeeSync</Link>
       </div>
       <div className="navbar-hamburger" onClick={toggleMenu}>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
@@ -30,7 +30,7 @@ function Navbar() {
           <Link to="/hive-management" onClick={() => setIsOpen(false)}>Manage Hives</Link>
         </li>
         <li>
-          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="/NewHivePlacement" onClick={() => setIsOpen(false)}>New Hive Placement</Link>
         </li>
       </ul>
     </nav>
