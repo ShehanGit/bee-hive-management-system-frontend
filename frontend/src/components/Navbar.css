@@ -129,3 +129,18 @@
 .navbar-hamburger .bar.open:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
+.navbar-notification {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Adjust responsive styling */
+@media (max-width: 768px) {
+  .navbar-notification {
+    left: auto;
+    right: 70px;
+    transform: none;
+  }
+}

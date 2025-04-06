@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import NotificationBell from './NotificationBell';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +15,15 @@ function Navbar() {
       <div className="navbar-logo">
         <Link to="/">Bee Hive</Link>
       </div>
+      
+      
+      
       <div className="navbar-hamburger" onClick={toggleMenu}>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
       </div>
+      
       <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
         <li>
           <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
@@ -32,7 +37,9 @@ function Navbar() {
         <li>
           <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
         </li>
+        <li> <NotificationBell /> </li>
       </ul>
+            
     </nav>
   );
 }

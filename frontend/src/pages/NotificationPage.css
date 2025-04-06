@@ -1,0 +1,343 @@
+/* frontend/src/pages/NotificationPage.css */
+.notification-page {
+    display: flex;
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
+    background-color: #f8f8f8;
+  }
+  
+  .notification-sidebar {
+    width: 300px;
+    background-color: white;
+    border-right: 1px solid #e5e5e5;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+    position: fixed;
+    padding: 20px 0;
+  }
+  
+  .notification-sidebar h2 {
+    padding: 0 20px 15px;
+    margin: 0;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #e5e5e5;
+    color: #333;
+  }
+  
+  .notification-list {
+    padding: 10px 0;
+  }
+  
+  .notification-list-item {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    transition: background-color 0.2s;
+  }
+  
+  .notification-list-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .notification-list-item.active {
+    background-color: rgba(255, 204, 0, 0.1);
+    border-left: 4px solid #ffaa00;
+  }
+  
+  .notification-list-item h3 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-right: 15px;
+  }
+  
+  .notification-time {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  .unread-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 8px;
+    height: 8px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+  }
+  
+  .notification-list-item.high {
+    border-left: 4px solid #ff3b30;
+  }
+  
+  .notification-list-item.medium {
+    border-left: 4px solid #ff9500;
+  }
+  
+  .notification-list-item.low {
+    border-left: 4px solid #34c759;
+  }
+  
+  .notification-detail {
+    flex: 1;
+    padding: 30px;
+    margin-left: 300px;
+  }
+  
+  .notification-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+  }
+  
+  .notification-header h1 {
+    margin: 0 0 10px;
+    font-size: 1.8rem;
+    padding-right: 120px;
+  }
+  
+  .notification-timestamp {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .severity-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .severity-badge.high {
+    background-color: #ff3b30;
+  }
+  
+  .severity-badge.medium {
+    background-color: #ff9500;
+  }
+  
+  .severity-badge.low {
+    background-color: #34c759;
+  }
+  
+  .notification-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+  }
+  
+  .detail-section {
+    margin-bottom: 30px;
+  }
+  
+  .detail-section h3 {
+    margin: 0 0 15px;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .detail-item {
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+  }
+  
+  .detail-item label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 5px;
+  }
+  
+  .detail-item span {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .action-list li, .checklist li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+  }
+  
+  .checklist li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checklist input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .graph-placeholder {
+    height: 250px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .image-placeholder {
+    height: 150px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  
+  .primary-button {
+    background-color: #ffaa00;
+    color: white;
+  }
+  
+  .primary-button:hover {
+    background-color: #ff9500;
+  }
+  
+  .secondary-button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .secondary-button:hover {
+    background-color: #e5e5e5;
+  }
+  
+  .outline-button {
+    background-color: transparent;
+    border: 1px solid #ffaa00;
+    color: #ffaa00;
+  }
+  
+  .outline-button:hover {
+    background-color: rgba(255, 170, 0, 0.1);
+  }
+  
+  .no-notification-selected {
+    text-align: center;
+    padding: 50px 0;
+    color: #888;
+  }
+  
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #888;
+  }
+  
+  .mock-graph {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .graph-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  
+  .graph-bars {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+  
+  .graph-bar {
+    width: 30px;
+    background-color: #ffaa00;
+    border-radius: 3px 3px 0 0;
+    transition: height 0.3s;
+  }
+  
+  .graph-labels {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  @media (max-width: 768px) {
+    .notification-page {
+      flex-direction: column;
+    }
+    
+    .notification-sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      padding: 10px 0;
+      border-right: none;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .notification-detail {
+      margin-left: 0;
+      padding: 15px;
+    }
+    
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+    }
+    
+    .notification-header h1 {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+    
+    .severity-badge {
+      top: 40px;
+      right: 0;
+    }
+  }
