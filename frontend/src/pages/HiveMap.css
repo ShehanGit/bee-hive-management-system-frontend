@@ -5,8 +5,8 @@
     --sidebar-bg: #ffffff;
     --text-color: #333;
     --accent-color: #ffa000;
-    --green-color: #4caf50; /* Green for predictions < 30 */
-    --blue-color: #2196f3; /* Blue for 30 <= predictions < 32 */
+    --green-color: #4caf50;
+    --blue-color: #2196f3;
   }
   
   * {
@@ -36,6 +36,8 @@
     padding: 1.5rem;
     border-right: 1px solid #eee;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
   
   .sidebar-title {
@@ -64,6 +66,7 @@
   
   .hive-list {
     list-style: none;
+    flex-grow: 1;
   }
   
   .hive-list-item {
@@ -87,24 +90,44 @@
     color: #777;
   }
   
+  .view-toggle {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .view-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .view-toggle input[type="radio"] {
+    accent-color: var(--primary-color);
+  }
+  
   .map-container {
     flex: 1;
     position: relative;
-    padding: 0; /* Remove padding to fill the area */
+    padding: 0;
   }
   
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
-    grid-template-rows: repeat(4, 1fr); /* 4 rows */
-    gap: 0; /* No gap between boxes */
-    height: 100%; /* Fill the entire height */
-    width: 100%; /* Fill the entire width */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
   }
   
   .grid-cell {
     background: #fff;
-    border: 1px solid var(--primary-color); /* Thin border for visibility */
+    border: 1px solid var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,12 +141,12 @@
   
   .grid-cell.green {
     background: var(--green-color);
-    color: #fff; /* White text for contrast */
+    color: #fff;
   }
   
   .grid-cell.blue {
     background: var(--blue-color);
-    color: #fff; /* White text for contrast */
+    color: #fff;
   }
   
   .placeholder-text {
@@ -134,6 +157,23 @@
   .prediction-text {
     font-size: 1.2rem;
     font-weight: bold;
+  }
+  
+  .map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5; /* Adjust opacity as needed */
+    pointer-events: none; /* Allows clicks to pass through to the grid */
   }
   
   .popup-overlay {

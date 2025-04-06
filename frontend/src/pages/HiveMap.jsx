@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import mapImage from "../assets/images/map.png"; // Import the map image
 import "./HiveMap.css";
 
 function HiveMap() {
@@ -16,6 +17,7 @@ function HiveMap() {
     temperature: "",
   });
   const [predictions, setPredictions] = useState({});
+  const [viewMode, setViewMode] = useState("grid"); // Default to grid view
 
   const fetchHives = async () => {
     try {
@@ -52,7 +54,7 @@ function HiveMap() {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/predict", data, {
+      const res = await axios.post("http://localhost:5002/predict", data, {
         headers: { "Content-Type": "application/json" },
       });
       const prediction = res.data.predictions[0];
@@ -73,7 +75,6 @@ function HiveMap() {
     }
   };
 
-  // Render 5x4 grid
   const renderGrid = () => {
     const grid = [];
     for (let row = 0; row < 4; row++) {
@@ -104,6 +105,10 @@ function HiveMap() {
     return grid;
   };
 
+  const handleViewChange = (e) => {
+    setViewMode(e.target.value);
+  };
+
   return (
     <div className="hivemap-page">
       <Navbar />
@@ -125,10 +130,51 @@ function HiveMap() {
               </li>
             ))}
           </ul>
+          <div className="view-toggle">
+            <label>
+              <input
+                type="radio"
+                name="viewMode"
+                value="map"
+                checked={viewMode === "map"}
+                onChange={handleViewChange}
+              />
+              Map
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="viewMode"
+                value="grid"
+                checked={viewMode === "grid"}
+                onChange={handleViewChange}
+              />
+              Grid
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="viewMode"
+                value="prediction"
+                checked={viewMode === "prediction"}
+                onChange={handleViewChange}
+              />
+              Prediction
+            </label>
+          </div>
         </aside>
 
         <main className="map-container">
-          <div className="grid-container">{renderGrid()}</div>
+          {viewMode === "map" ? (
+            <img src={mapImage} alt="Map" className="map-image" />
+          ) : (
+            <div className="grid-container">
+              {renderGrid()}
+              {viewMode === "prediction" && (
+                <img src={mapImage} alt="Map Overlay" className="map-overlay" />
+              )}
+            </div>
+          )}
           {selectedCell && (
             <div className="popup-overlay">
               <div className="popup-content">
@@ -213,4 +259,4 @@ function HiveMap() {
   );
 }
 
-export default HiveMap;
+export default HiveMap; 
