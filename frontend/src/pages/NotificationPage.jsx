@@ -30,7 +30,6 @@ function NotificationPage() {
             "Deploy additional deterrents if necessary",
             "Schedule an immediate inspection"
           ],
-          images: ["image1.jpg", "image2.jpg"]
         }
       },
       {
